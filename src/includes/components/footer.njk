@@ -1,0 +1,22 @@
+<footer id="site-footer">
+    <div class="wrapper">
+        <nav>
+            <ul>
+                {%- for nav in navigation.footer -%}
+                <li>
+                    <a href="{{ nav.url | url }}">
+                        {{ nav.title }}
+                    </a>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </nav>
+
+        <aside>
+            <p>{{ metadata.title }} is not responsible or liable for any loss or damage of any sort incurred as the result of any such dealings, and you understand that your use of Third-Party Content, and your interactions with third parties, is at your own risk.</p>
+            <br>
+            <p>Illustrations from <a href="https://icons8.com/ouch/illustration/marginalia-payment-processed">Ouch!</a></p>
+            <p>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+        </aside>
+    </div>
+</footer>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ title or renderData.title or metadata.title }} | {{ metadata.title }}!</title>
+        <meta name="description" content="{{ description or metadata.description }}">
+
+        <meta content="en_US" property="og:locale">
+        <meta content="website" property="og:type">
+        <meta content="https://ngnt.win" property="og:url">
+        <meta content="{{ metadata.title }}" property="og:title">
+        <meta content="{{ metadata.description }}" property="og:description">
+        <meta content="https://ngnt.win/assets/img/poster.png" property="og:image">
+        <meta content="1200" property="og:image:width">
+        <meta content="630" property="og:image:height">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ metadata.title }}">
+        <meta name="twitter:description" content="{{ metadata.description }}">
+        <meta name="twitter:image" content="https://ngnt.win/assets/img/poster.png">
+        <meta name="twitter:image:width" content="1200">
+        <meta name="twitter:image:height" content="630">
+        <meta name="twitter:image:alt" content="{{ metadata.title }}">
+
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="icon" href="/favicon.ico">
+
+        <script>
+            var GAME_DATA = {
+                environment: '{{ game.environment }}',
+                network_id: '{{ game.network_id }}',
+                ngnt_contract_address: '{{ game.ngnt_contract_address }}',
+                win_ngnt_contract_address: '{{ game.win_ngnt_contract_address }}',
+                ngnt_gsn_fee: '{{ game.ngnt_gsn_fee }}',
+                ticket_cost: '{{ game.ticket_cost }}',
+                total_tickets: '{{ game.total_tickets }}',
+                api_base: '{{ game.api_base }}',
+                etherscan_base: '{{ game.etherscan_base }}',
+                max_user_tickets_per_game: '{{ game.max_user_tickets_per_game }}'
+            };
+            console.log(GAME_DATA);
+        </script>
+    </head>
+	<body>
+
+        {% include "components/header.njk" %}
+
+		<main>
+			{{ layoutContent | safe }}
+		</main>
+
+		{% include "components/footer.njk" %}
+
+        <script src="/assets/js/global.js"></script>
+
+        {% for script in scripts -%}
+        <script src="/assets/js/{{ script }}"></script>
+        {%- endfor %}
+
+	</body>
+</html>

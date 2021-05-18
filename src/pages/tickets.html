@@ -1,0 +1,68 @@
+---
+title: My tickets
+subtitle: Your purchase history with the game contract
+permalink: /tickets/index.html
+scripts:
+- tickets.js
+---
+
+<section>
+    <div class="wrapper" aria-live="polite">
+
+        <!-- Page error -->
+        <div class="state-page-error" hidden>
+            <div class="card text-center">
+                <h2 class="text-h2">Oops! Something went wrong.</h2>
+                <p>This is probably a network error. Try reloading the page.</p>
+                <br>
+                <button onclick="location.reload();" class="button">Reload</button>
+            </div>
+        </div>
+
+        <!-- No Web3 detected -->
+        <div class="state-no-web3" hidden>
+            <div class="card text-center">
+                <h2 class="text-h2">Your browser isn't compatible</h2>
+                <p>
+                    This a cryptocurrency-based game, so you’ll need to set up some things to play.<br>
+                    Click the link below to get set-up instructions.
+                </p>
+                <br>
+                <a href="/#how-to-play" class="button">How To Play</a>
+            </div>
+        </div>
+
+        <!-- Access to wallet needed -->
+        <div class="state-access-needed" hidden>
+            <div class="card text-center">
+                <h2 class="text-h2">Grant access to your wallet</h2>
+                <p>In order to get the list of tickets you've purchased, we need access to your wallet.</p>
+                <br>
+                <button id="grant-access" class="button">Grant Access</button>
+            </div>
+        </div>
+
+        <!-- Access to wallet granted -->
+        <div class="state-access-granted">
+            <h2 class="sr-only">Transaction history</h2>
+
+            <!-- Loading indicator -->
+            <div class="state-content-loading">
+                <p class="text-h2">Loading<span class="animated-elipsis"><span>.</span><span>.</span><span>.</span></span></p>
+            </div>
+
+            <!-- Tickets list -->
+            <ul class="list state-content-loaded" id="past-tickets-list" hidden>
+                <div class="card text-center">
+                    <h3 class="text-h2">You haven't purchased any tickets</h3>
+                    <p>No tickets were found for your wallet address.</p>
+                    <br>
+                    <a href="/" class="button">Play now</a>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+{% include "components/current-game-cta.njk" %}

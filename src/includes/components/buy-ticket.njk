@@ -1,0 +1,86 @@
+<div id="buy-ticket" class="card">
+
+    <form>
+        <h2 class="text-h3" id="buy-ticket-label">Buy your tickets</h2>
+        <p><small>The more tickets you buy, the higher your chance of winning! Each address can buy a maximum of <strong>{{ game.max_user_tickets_per_game }} tickets per game</strong>.</small></p>
+        <br>
+        <select aria-labelledby="buy-ticket-label" name="ticket-amount" id="ticket-amount">
+
+            {% for i in range(1, game.max_user_tickets_per_game + 1) -%}
+                <option value="{{ i }}">
+                    {{ i }} ticket{% if i > 1 %}s{% endif %}
+                    -
+                    {{ i * game.ticket_cost | formatNumber }} NGNT
+                </option>
+            {%- endfor %}
+
+        </select>
+
+        <button id="buy-ticket-button" class="button" disabled>
+            Buy Tickets
+        </button>
+
+        <small class="state-has-web3 state-loading-contract message">
+            Please wait while we get the latest information from the smart contract.
+        </small>
+
+        <small class="state-no-web3 message warning" hidden>
+            You need to setup some things to get started. Follow the instructions below!
+        </small>
+
+        <small class="state-wrong-network message warning" hidden>
+            Looks like your wallet is connected to the wrong network! Please connect to the <strong>{{ game.network_name }}</strong> then refresh this page to play.
+        </small>
+
+        <small class="state-has-web3 state-game-end message" hidden>
+            All the tickets have been bought! The smart contract is currently choosing a winner, after which a new game will begin. Please wait a few minutes...
+        </small>
+    </form>
+
+</div>
+
+<section id="transaction-notice" class="hidden" hidden aria-live="polite">
+    <div class="wrapper">
+        <div class="inner-wrapper state-purchase-pending">
+            <h2 class="text-h2">
+                Your purchase is pending<span class="animated-elipsis"><span>.</span><span>.</span><span>.</span></span>
+            </h2>
+            <div class="content">
+                <ol class="instructions">
+                    <li id="step-connect-account"><strong>Connect Win NGNT to your account</strong><span>: You'll be prompted to allow access.</span></li>
+                    <li id="step-approve"><strong>Allow Win NGNT to transfer your NGNT</strong><span>: You'll be prompted to sign a transaction. It will take approximately 1 minute to confirm.</span></li>
+                    <li><strong>Purchase your ticket</strong>: You'll be prompted to sign a transaction. It will take approximately 1 minute to confirm.</li>
+                </ol>
+                <p><small>Note that no transactions will show up in your NGNT wallet even though your balance will be debited.</small></p>
+            </div>
+        </div>
+
+        <div class="inner-wrapper state-purchase-success" hidden>
+            <h2 class="text-h2">Congratulations</h2>
+            <div class="content">
+                <p>Your ticket purchase was successful!</p>
+            </div>
+        </div>
+
+        <div class="inner-wrapper state-purchase-error" hidden>
+            <h2 class="text-h2">Uh Oh</h2>
+            <div class="content">
+                <p>There was an issue purchasing your ticket. Please try again later.</p>
+            </div>
+        </div>
+
+        <button class="button state-purchase-completed" hidden>Close</button>
+    </div>
+</section>
+
+<div id="confetti-container" class="hidden" hidden>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+</div>

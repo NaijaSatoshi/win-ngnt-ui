@@ -1,0 +1,55 @@
+
+$how-to-step-spacing: 4rem;
+
+.how-to-step {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.how-to-step--no {
+    font-size: 2rem;
+    font-weight: $font-weight-bold;
+    color: $color-pink;
+    width: $how-to-step-spacing;
+}
+
+.how-to-step--title {
+    flex-grow: 1;
+}
+
+.how-to-step--toggle {
+    width: $how-to-step-spacing;
+    height: $how-to-step-spacing;
+
+    background-image: url(/assets/img/toggle-opened.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.5rem;
+    background-color: transparent;
+    border: 0;
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.how-to-step--body {
+    @media (min-width: $breakpoint) {
+        margin-left: $how-to-step-spacing;
+    }
+
+    margin-bottom: 1.5rem;
+}
+
+.how-to-step.collapsed {
+    .how-to-step--body {
+        display: none;
+    }
+
+    .how-to-step--toggle {
+        background-image: url(/assets/img/toggle-closed.png);
+    }
+}

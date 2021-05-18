@@ -1,0 +1,13 @@
+{
+    "header": [
+        { "title": "Play", "url": "/" },
+        { "title": "Past wins", "url": "/winners/" },
+        { "title": "My tickets", "url": "/tickets/" },
+        { "title": "Help", "url": "/help/" }
+    ],
+    "footer": [
+        { "title": "Frequently asked questions", "url": "/help/" },
+        { "title": "About NGNT", "url": "https://ngnt.org" },
+        { "title": "Disclaimer", "url": "/disclaimer/" }
+    ]
+}

@@ -1,0 +1,52 @@
+---
+title: Previous winners
+subtitle: All past games and their winners
+illustration: winner.png
+illustration2x: winner-2x.png
+permalink: /winners/index.html
+scripts:
+- winners.js
+---
+
+<section>
+    <div class="wrapper" aria-live="polite">
+
+        <!-- Page error -->
+        <div class="state-page-error" hidden>
+            <div class="card text-center">
+                <h2 class="text-h2">Oops! Something went wrong.</h2>
+                <p>This is probably a network error. Try reloading the page.</p>
+                <br>
+                <button onclick="location.reload();" class="button">Reload</button>
+            </div>
+        </div>
+
+        <!-- Loading indicator -->
+        <div class="state-content-loading">
+            <p class="text-h2">Loading<span class="animated-elipsis"><span>.</span><span>.</span><span>.</span></span></p>
+        </div>
+        
+        <div class="state-content-loaded" hidden>
+            <div class="card text-center latest-winner">
+                <h2 class="text-h2">It's our first game!</h2>
+                <p class="text-center">
+                    You can be the first to win <strong>{{ game.jackpot | formatNumber }}</strong> NGNT. <br>
+                    Click the button below to get started.
+                </p>
+                <br>
+                <a href="/" class="button">
+                    Buy tickets
+                </a>
+                <br>
+            </div>
+            
+            <h3 class="sr-only">Other winners</h3>
+            
+            <ul class="list" id="other-winners">
+            </ul>
+        </div>
+        
+    </div>
+</section>
+
+{% include "components/current-game-cta.njk" %}

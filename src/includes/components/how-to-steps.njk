@@ -1,0 +1,61 @@
+{% macro header(number, title) %}
+<header>
+    <span class="how-to-step--no">{{ number }}</span>
+    <h3 class="how-to-step--title text-h3">{{ title }}</h3>
+    <button class="how-to-step--toggle" data-action="toggle">
+        <span class="sr-only">Toggle Content</span>
+    </button>
+</header>
+{% endmacro %}
+
+<article id="how-to-1" class="how-to-step card">
+    {{ header(1, 'Get a wallet') }}
+    <div class="how-to-step--body inner-wrapper">
+        <p>
+            You’ll need a cryptocurrency wallet to store your NGNT if you don’t already have one.
+            We recommend <a href="https://trustwallet.com/">Trust Wallet</a> for mobile devices and 
+            <a href="https://metamask.io/">MetaMask</a> for desktop browsers.
+        </p>
+        <br>
+
+        <!-- Get Crypto Wallet Button (Mobile) -->
+        <a class="button" id="mobile-wallet-cta"
+            href="https://trustwallet.com/">
+            Download Trust Wallet
+        </a>
+        <!-- Get Crypto Wallet Button (Desktop) -->
+        <a class="button" id="desktop-wallet-cta"
+            href="https://metamask.io/" hidden>
+            Install MetaMask
+        </a>
+    </div>
+</article>
+
+<article id="how-to-2" class="how-to-step card collapsed">
+    {{ header(2, 'Get NGNT') }}
+    <div class="how-to-step--body inner-wrapper">
+        <p>Next you’ll need NGNT in your wallet. The quickest and easiest way to get NGNT is to visit buy.ngnt.org.</p>
+        <br>
+        <a href="https://buy.ngnt.org" class="button">
+            Buy NGNT
+        </a>
+    </div>
+</article>
+
+<article class="how-to-step card collapsed">
+    {{ header(3, 'Buy your tickets') }}
+    <div class="how-to-step--body inner-wrapper">
+        <p>Visit this page using either the integrated browser in Trust Wallet or the browser with MetaMask installed. Choose how many tickets you wish to buy with using the form above and click buy!</p>
+        <br>
+        <a href="#buy-ticket" class="button">
+            Buy Tickets
+        </a>
+    </div>
+</article>
+
+<article class="how-to-step card collapsed">
+    {{ header(4, 'Get your winnings!') }}
+    <div class="how-to-step--body inner-wrapper">
+        <p>If you win, your NGNT will be automatically sent to the address you used to purchase your tickets. You don't need to do anything to collect your winnings! The exact prize amount will be a little over {{ game.jackpot | formatNumber }} NGNT.</p>
+    </div>
+</article>

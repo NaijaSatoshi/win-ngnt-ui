@@ -1,0 +1,89 @@
+---
+layout: layouts/base.njk
+title: Play
+permalink: /
+scripts:
+- home.js
+---
+
+<header class="page-header page-header--home">
+    <div class="wrapper">
+        
+        <div class="inner-wrapper">
+            <p>Play for a chance to win more than</p>
+            <p><span class="text-highlight"><strong>{{ game.jackpot | formatNumber }}</strong> NGNT</span></p>
+            <br>
+            <div id="progress-bar" aria-hidden="true">
+                <div id="progress-bar-fill"></div>
+            </div>
+
+            <p class="state-no-web3" hidden>
+                <small>The current game will close after all <strong>{{ game.total_tickets | formatNumber }} tickets</strong> have been purchased.</small>
+            </p>
+            <p class="state-has-web3">
+                <small>
+                    <strong><span id="tickets-purchased">0</span> of {{ game.total_tickets | formatNumber }}</strong>
+                    available tickets already purchased.
+                </small>
+                <br>
+                <small>The current game <span id="game-number"></span> will close after all tickets have been purchased.</small>
+            </p>
+            <br>
+            
+            <div class="desktop-only">
+                <br>
+                <a href="#how-to-play" class="button">How to play</a>
+            </div>
+        </div>
+
+        {% include "components/buy-ticket.njk" %}
+
+    </div>
+</header>
+
+<section id="how-to-play">
+    <div class="wrapper">
+        <header class="inner-wrapper">
+            <h2 class="text-h2">How to play</h2>
+            <p>This a cryptocurrency-based game, so you’ll need to set up some things to play. Follow the instructions below to get playing!</p>
+        </header>
+        <br><br>
+
+        {% include "components/how-to-steps.njk" %}
+
+    </div>
+</section>
+
+<section class="split-section">
+    <div class="wrapper">
+        <div class="inner-wrapper">
+            <h2 class="text-h2">There’s <em>always</em> a winner</h2>
+            <br>
+            <p>The game will only close after {{ game.total_tickets | formatNumber }} tickets have been purchased. At that time, a winner will be chosen at random by the <a href="{{ game.win_ngnt_contract_address | etherscanAddress }}">smart contract</a> (<a href="https://www.investopedia.com/terms/s/smart-contracts.asp">what's a smart contract?</a>) and their winnings will be sent to the NGNT wallet address they used to purchase their ticket.</p>
+            <br>
+            <p>This means that the game can go on for as long as it takes to sell the amount of tickets. But, whenever that happens, there will always be a winner. Once a winner is chosen, a new game will commence.</p>
+        </div>
+        <figure>
+            <img src="/assets/img/winner.png"
+                 srcset="assets/img/winner-2x.png 2x"
+                 alt="Man holding a giant Naira Token bill">
+        </figure>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="wrapper">
+        <div class="inner-wrapper latest-winner">
+            <h2 class="text-h2">It's our first game!</h2>
+            <p class="text-center">
+                You can be the first to win <strong>{{ game.jackpot | formatNumber }}</strong> NGNT. <br>
+                Click the button below to get started.
+            </p>
+            <br>
+            <a href="#buy-ticket" class="button">
+                Buy tickets
+            </a>
+            <br>
+        </div>
+    </div>
+</section>

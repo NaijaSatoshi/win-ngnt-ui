@@ -1,0 +1,28 @@
+@import url('https://rsms.me/inter/inter.css');
+
+$font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+
+// Colours
+
+$color-pink: #E0719E;
+$color-green: #7FD6C2;
+$color-yellow: #F5E049;
+$bg-color: #F3F6E6;
+
+@mixin bg-color-translucent($r: 243, $g: 246, $b: 230) {
+    background-color: rgb($r, $g, $b);
+    background-color: rgba($r, $g, $b, 0.9);
+
+    @supports (backdrop-filter: saturate(1.8) blur(10px)) {
+        background-color: rgba($r, $g, $b, 0.8);
+        backdrop-filter: saturate(1.5) blur(5px);
+    }
+}
+
+// Responsive
+
+$breakpoint: 600px;
+$breakpoint-mobile: 420px;

@@ -1,0 +1,19 @@
+---
+title: End the Game
+permalink: /end-game/index.html
+scripts:
+- endGame.js
+---
+
+<section>
+    <div class="wrapper">
+        <p>In a case where all the tickets have been purchased, but the winnings haven't been disbursed and a new game hasn't started, you can use this page to trigger the ending of the current game and the start of a new game. Note that this trigger will only work if there are no tickets left to purchase.</p>
+        <br>
+        <ul class="ul">
+            <li><strong>Current game number:</strong> <span id="gameNumber"></span></li>
+            <li><strong>No of tickets purchased:</strong> <span id="numberOfTicketsPurchased"></span></li>
+            <li><strong>No of tickets available:</strong> <span id="numberOfTicketsLeft"></span></li>
+        </ul>
+        <button class="button" id="end-game" disabled>Trigger Game End</button>
+    </div>
+</section>

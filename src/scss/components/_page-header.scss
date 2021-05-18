@@ -1,0 +1,81 @@
+
+.page-header {
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    position: relative;
+
+    background-color: $bg-color;
+    background-image: url(/assets/img/bg-small.png);
+    background-image: url(/assets/img/bg-small.svg);
+
+    @media (min-width: 400px) {
+        background-image: url(/assets/img/bg.png);
+        background-image: url(/assets/img/bg.svg);
+    }
+
+    @media (min-width: $breakpoint) {
+        padding-top: 150px;
+    }
+
+    .inner-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.page-header--illustration {
+    position: absolute;
+    right: 0;
+    bottom: -10%;
+    z-index: 0;
+
+    @media (min-width: $breakpoint) {
+        right: 20%;
+    }
+
+    img {
+        width: 15rem;
+
+        @media (min-width: $breakpoint) {
+            width: 20rem;
+        }
+    }
+}
+
+.page-header--home {
+    padding-bottom: 100px;
+
+    @media (min-width: $breakpoint) {
+        padding-bottom: 200px;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        text-align: center;
+
+        @media (min-width: $breakpoint) {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            text-align: left;
+        }
+    }
+
+    &:after {
+        content: "";
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        bottom: -5px;
+
+        background-image: url(/assets/img/bg-home-divider.svg);
+        background-repeat: repeat-x;
+        background-position: bottom;
+    }
+
+}
+

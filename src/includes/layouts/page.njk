@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+section: page
+---
+
+<header class="page-header">
+    <div class="wrapper">
+        <div class="inner-wrapper">
+            <h1 class="text-h2">{{ title }}</h1>
+            <p>{{ subtitle }}</p>
+        </div>
+
+        {% if illustration %}
+        <figure class="page-header--illustration">
+            <img src="/assets/img/{{ illustration }}"
+                 {% if illustration2x %}
+                 srcset="/assets/img/{{ illustration2x }} 2x"
+                 {% endif %}
+                 alt="">
+        </figure>
+        {% endif %}
+    </div>
+</header>
+
+{{ layoutContent | safe }}
+

@@ -1,0 +1,12 @@
+
+#buy-ticket {
+    background-color: #fff;
+
+    max-width: 300px;
+
+    @media (min-width: $breakpoint) {
+        max-width: 280px;
+
+        margin-left: 3rem;
+    }
+}

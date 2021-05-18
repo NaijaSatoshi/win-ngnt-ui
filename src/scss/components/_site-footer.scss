@@ -1,0 +1,37 @@
+#site-footer {
+    font-size: 1.2rem;
+    padding-bottom: 25px;
+    padding-top: 25px;
+
+    @media (min-width: $breakpoint) {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    nav,
+    aside {
+        width: 100%;
+    }
+
+    nav {
+        margin-bottom: 2rem;
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+
+    aside {
+        @media (min-width: $breakpoint) {
+            text-align: right;
+        }
+    }
+
+    .wrapper {
+
+        @media (min-width: $breakpoint) {
+            display: flex;
+        }
+
+    }
+}

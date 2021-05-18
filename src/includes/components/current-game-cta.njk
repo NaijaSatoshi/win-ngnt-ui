@@ -1,0 +1,12 @@
+<section class="cta-section">
+    <div class="wrapper">
+        <div class="inner-wrapper">
+            <h2 class="text-h2">Current game</h2>
+            <p class="text-highlight"><strong>{{ game.jackpot | formatNumber }}</strong> NGNT</p>
+            <p><small>The exact prize amount will be a little over {{ game.jackpot | formatNumber }} NGNT.<br>
+                Game will close after {{ game.total_tickets | formatNumber }} tickets have been purchased</small></p>
+            <br>
+            <a href="/" class="button">Play now</a>
+        </div>
+    </div>
+</section>

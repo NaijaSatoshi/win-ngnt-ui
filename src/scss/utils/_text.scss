@@ -1,0 +1,74 @@
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-stack;
+    font-weight: $font-weight-normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.text-highlight {
+    font-size: 3rem;
+    color: $color-pink;
+    text-shadow: 3px 3px 0 $color-yellow;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint) {
+        font-size: 3.5rem;
+    }
+}
+
+.text-h2 {
+    font-size: 2rem;
+    color: $color-pink;
+    margin-bottom: 1.5rem;
+}
+
+.text-h3 {
+    font-size: 1.6rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+p {
+    word-break: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: $color-pink;
+
+    &:focus,
+    &:hover {
+        outline: none;
+        text-shadow: 3px 3px 0 $color-yellow;
+    }
+}
+
+small {
+    font-size: 1.2rem;
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}
+
+em {
+    font-style: italic;
+}
+
+.ul {
+
+    list-style-type: disc;
+
+    li {
+        margin-bottom: 1em;
+        margin-left: 1em;
+    }
+
+}

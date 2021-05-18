@@ -1,0 +1,27 @@
+#transaction-notice {
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 50%;
+    min-height: 50vh;
+
+    @include bg-color-translucent(255, 255, 255);
+
+
+    transform: translateY(0%);
+    transition: transform 1s;
+
+    .inner-wrapper {
+        margin-bottom: 1.5rem;
+
+        @media (min-width: $breakpoint) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+#transaction-notice.hidden {
+    transform: translateY(100%);
+}

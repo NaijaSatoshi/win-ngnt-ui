@@ -1,0 +1,115 @@
+#site-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    padding: 14px 0;
+
+    @include bg-color-translucent;
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+#site-nav {
+    button {
+        display: block;
+        border: none;
+        background: url("/assets/img/hamburger-menu.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 25px;
+        width: 25px;
+        z-index: 1;
+        position: relative;
+    }
+
+    ul {
+        transition: transform 1s ease;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: -100vh;
+        left: 0;
+        background-color: $bg-color;
+    }
+
+    li {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+
+        a.current {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    &.expanded {
+        button {
+            background-image: url("/assets/img/close.svg");
+        }
+
+        ul {
+            transform: translate(0, 100vh);
+        }
+    }
+
+    &.hidden {
+        ul {
+            display: none;
+        }
+        
+        @media (min-width: $breakpoint) {
+            ul {
+                display: flex;
+            }
+        }
+    }
+
+    @media (min-width: $breakpoint) {
+        button {
+            display: none;
+        }
+
+        ul {
+            flex-flow: row wrap;
+            position: relative;
+            width: initial;
+            height: initial;
+            top: initial;
+            left: initial;
+            transform: initial !important;
+            background-color: transparent;
+        }
+
+        li {
+            font-size: inherit;
+            margin-bottom: initial;
+            margin-left: 1.5rem;
+    
+            a.current {
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+}
+
+#site-title {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 3rem;
+        width: auto;
+        margin-right: 1rem;
+    }
+}

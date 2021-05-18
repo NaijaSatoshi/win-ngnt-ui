@@ -1,0 +1,25 @@
+<header id="site-header">
+    <div class="wrapper">
+        <a id="site-title" href="/">
+            <img src="/assets/img/logo.svg" alt="Crown Icon">
+            {{ metadata.title }}!
+        </a>
+        <nav id="site-nav" class="hidden">
+            <button id="site-nav-toggle"
+                    data-modal-first-focusable
+                    aria-label="Menu">
+            </button>
+            <ul>
+                {%- for nav in navigation.header -%}
+                <li>
+                    <a href="{{ nav.url | url }}"
+                       {% if nav.url == page.url %} class="current"{% endif %}
+                       {% if loop.last %} data-modal-last-focusable{% endif %}>
+                        {{ nav.title }}
+                    </a>
+                </li>
+                {%- endfor -%}
+            </ul>
+        </nav>
+    </div>
+</header>
